@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -27,7 +28,24 @@ public class TodoServiceImpl implements TodoService {
      * @return
      */
     @Override
-    public List<TodoItem> getTodoList() {
+    public List<TodoItem> findAll() {
         return (List<TodoItem>) repository.findAll();
+    }
+
+    /**
+     * @param index
+     */
+    @Override
+    public void delete(long index) {
+        repository.deleteById(index);
+    }
+
+    /**
+     * @param index
+     * @return
+     */
+    @Override
+    public Optional<TodoItem> findById(long index) {
+        return repository.findById(index);
     }
 }

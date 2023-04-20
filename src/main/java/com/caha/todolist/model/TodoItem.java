@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class TodoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String index;
+    private long index;
     private String name;
     private String description;
 }
