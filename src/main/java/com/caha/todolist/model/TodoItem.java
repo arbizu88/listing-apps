@@ -26,4 +26,6 @@ public class TodoItem {
     private Calendar modifiedDate;
 
     private String teamMember;
+
+    private String status;
 }
