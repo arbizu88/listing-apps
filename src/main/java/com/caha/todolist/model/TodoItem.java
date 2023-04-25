@@ -1,11 +1,11 @@
 package com.caha.todolist.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Calendar;
 
 @Data
 @Entity
@@ -15,6 +15,15 @@ public class TodoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long index;
-    private String name;
-    private String description;
+    private String task;
+    private String priority;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Calendar createdDate;
+
+    @UpdateTimestamp
+    private Calendar modifiedDate;
+
+    private String teamMember;
 }
